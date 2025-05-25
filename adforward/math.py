@@ -1,15 +1,15 @@
 from adforward.dual import DualNumber
-import numpy as math
+import numpy as np
 
 
 def exp(x: DualNumber) -> DualNumber:
-    real = math.exp(x.real)
-    dual = x.dual * math.exp(x.real)
+    real = np.exp(x.real)
+    dual = x.dual * np.exp(x.real)
     return DualNumber(real, dual)
 
 
 def log(x: DualNumber) -> DualNumber:
-    real = math.log(x.real)
+    real = np.log(x.real)
     dual = x.dual / x.real
     return DualNumber(real, dual)
 
@@ -26,14 +26,14 @@ def pow(a: DualNumber, b) -> DualNumber:
 
 
 def cos(x: DualNumber) -> DualNumber:
-    real = math.cos(x.real)
-    dual = x.dual * -math.sin(x.real)
+    real = np.cos(x.real)
+    dual = x.dual * -np.sin(x.real)
     return DualNumber(real, dual)
 
 
 def sin(x: DualNumber) -> DualNumber:
-    real = math.sin(x.real)
-    dual = x.dual * math.cos(x.real)
+    real = np.sin(x.real)
+    dual = x.dual * np.cos(x.real)
     return DualNumber(real, dual)
 
 
@@ -54,14 +54,14 @@ def tanh(x: DualNumber) -> DualNumber:
 
 
 def sign(x: DualNumber) -> DualNumber:
-    real = math.sign(x.real)
+    real = np.sign(x.real)
     dual = 0
     return DualNumber(real, dual)
 
 
 def abs(x: DualNumber) -> DualNumber:
-    real = math.abs(x.real)
-    dual = math.sign(x.real)
+    real = np.abs(x.real)
+    dual = np.sign(x.real)
     return DualNumber(real, dual)
 
 

@@ -39,7 +39,7 @@ class DualNumber:
     def __eq__(self, value: object) -> bool:
         if isinstance(value, (int, float)):
             return self.real == value
-        elif isinstance(value, "DualNumber"):
+        elif isinstance(value, DualNumber):
             return self.real == value.real
         else:
             return False
@@ -47,7 +47,7 @@ class DualNumber:
     def __lt__(self, value: object) -> bool:
         if isinstance(value, (int, float)):
             return self.real < value
-        elif isinstance(value, "DualNumber"):
+        elif isinstance(value, DualNumber):
             return self.real < value.real
         else:
             raise ValueError(f"Cannot compare 'DualNumber' with {value.__class__}")
@@ -55,7 +55,7 @@ class DualNumber:
     def __le__(self, value: object) -> bool:
         if isinstance(value, (int, float)):
             return self.real <= value
-        elif isinstance(value, "DualNumber"):
+        elif isinstance(value, DualNumber):
             return self.real <= value.real
         else:
             raise ValueError(f"Cannot compare 'DualNumber' with {value.__class__}")
@@ -63,7 +63,7 @@ class DualNumber:
     def __gt__(self, value: object) -> bool:
         if isinstance(value, (int, float)):
             return self.real > value
-        elif isinstance(value, "DualNumber"):
+        elif isinstance(value, DualNumber):
             return self.real > value.real
         else:
             raise ValueError(f"Cannot compare 'DualNumber' with {value.__class__}")
@@ -71,7 +71,7 @@ class DualNumber:
     def __ge__(self, value: object) -> bool:
         if isinstance(value, (int, float)):
             return self.real >= value
-        elif isinstance(value, "DualNumber"):
+        elif isinstance(value, DualNumber):
             return self.real >= value.real
         else:
             raise ValueError(f"Cannot compare 'DualNumber' with {value.__class__}")
@@ -88,7 +88,7 @@ class DualNumber:
             for i in range(other):
                 result = result * self
             return result
-        elif isinstance(other, "DualNumber"):
+        elif isinstance(other, DualNumber):
             return self.__pow__(other.real)
         else:
             raise RuntimeError("invalid value encountered in __pow__")

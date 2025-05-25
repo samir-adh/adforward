@@ -1,11 +1,9 @@
 import matplotlib.pyplot as plt
-import numpy as np
 from adforward.dual import DualNumber
 import adforward.math as m
 
 
 def u(x: DualNumber):
-    # return m.log(DualNumber(1) + x * x)
     return x * m.log(x**2 + DualNumber(1, 0)) + m.sin(x * 1)
 
 
