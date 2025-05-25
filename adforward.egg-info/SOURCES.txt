@@ -1,6 +1,7 @@
 setup.py
 adforward/__init__.py
 adforward/dual.py
+adforward/math.py
 adforward.egg-info/PKG-INFO
 adforward.egg-info/SOURCES.txt
 adforward.egg-info/dependency_links.txt
