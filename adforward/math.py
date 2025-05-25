@@ -1,5 +1,5 @@
 from adforward.dual import DualNumber
-import math
+import numpy as math
 
 
 def exp(x: DualNumber) -> DualNumber:
@@ -14,7 +14,14 @@ def log(x: DualNumber) -> DualNumber:
     return DualNumber(real, dual)
 
 
-def pow(a: DualNumber, b: DualNumber) -> DualNumber:
+def pow(a: DualNumber, b) -> DualNumber:
+    if isinstance(b, int):
+        result = DualNumber(1)
+        for i in range(b):
+            result *= a
+        return result
+    if isinstance(b, float):
+        return exp(DualNumber(b) * log(a))
     return exp(b * log(a))
 
 
@@ -44,3 +51,18 @@ def sinh(x: DualNumber) -> DualNumber:
 
 def tanh(x: DualNumber) -> DualNumber:
     return sinh(x) / cosh(x)
+
+
+def sign(x: DualNumber) -> DualNumber:
+    real = math.sign(x.real)
+    dual = 0
+    return DualNumber(real, dual)
+
+
+def abs(x: DualNumber) -> DualNumber:
+    real = math.abs(x.real)
+    dual = math.sign(x.real)
+    return DualNumber(real, dual)
+
+
+DualNumber.__pow__ = lambda self, other: pow(self, other)
