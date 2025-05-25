@@ -1,0 +1,9 @@
+setup.py
+adforward/__init__.py
+adforward/dual.py
+adforward.egg-info/PKG-INFO
+adforward.egg-info/SOURCES.txt
+adforward.egg-info/dependency_links.txt
+adforward.egg-info/top_level.txt
+tests/__init__.py
+tests/dual_test.py

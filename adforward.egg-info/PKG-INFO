@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: adforward
+Version: 0.1.0
+Summary: Forward-mode automatic differentiation library
+Author: Samir Abdallah
+Requires-Python: >=3.7
+Dynamic: author
+Dynamic: requires-python
+Dynamic: summary
